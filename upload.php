@@ -14,21 +14,25 @@
     if (isset($_POST['SUBMIT'])){
         if (! in_array($fExt, $allowedExtensions)){
             echo "File extension not allowed";
+            echo "<br><a href='./index.html'>Back</a>";
             die();
         }
-        if (! file_exists($uploadPath)){
+        if (!file_exists($uploadPath)){
             move_uploaded_file($fTmp, $uploadPath);
-            echo "Moved: " .$fTmp . " to " .$uploadPath;
+            echo "<b>Moved: " .$fTmp . " to " .$uploadPath.'</b>';
             echo "<br>";
             echo "<a href='./md5.php'>MD5 file</a>";
             //$_SESSION['path'] = $uploadPath;
+             echo "<br><a href='./index.html'>Back</a>";
         }
         else {
             move_uploaded_file($fTmp, $uploadPath);
-            echo "Moved: " .$fTmp . " to " .$uploadPath;
+            echo "<b>Moved: " .$fTmp . " to " .$uploadPath.'</b>';
             echo "<br>You have just overwritten an existing file.";
             echo "<br>";
             echo "<a href='./md5.php'>MD5 file</a>";
             //$_SESSION['path'] = $uploadPath;
+            echo "<br><a href='./index.html'>Back</a>";
         }
     }
+?>
