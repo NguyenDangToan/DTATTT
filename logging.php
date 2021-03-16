@@ -1,9 +1,10 @@
 <?php
-class LogFile
-{
-    public function __destruct()
+    class LogFile
     {
-        echo "Destruct Called";
-        file_put_contents($this->filename, $this->fcontents, FILE_APPEND);
+        public function __destruct()
+        {
+            file_put_contents($this->filename, $this->fcontents, FILE_APPEND);
+            echo "<br>Destruct Called";
+        }
     }
-}
+?>
