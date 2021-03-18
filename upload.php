@@ -4,6 +4,12 @@
     $allowedExtensions = ['jpg', 'png', 'gif'];
 
     $fName = $_FILES['imageUpload']['name'];
+    $fName = str_replace('<','',$fName,$i);
+    if ($i){
+        echo 'File name is not allowed!hihi';
+        echo "<br><a href='./index.html'>Back</a>";
+        die();
+    }
     $fSize = $_FILES['imageUpload']['name'];
     $fTmp = $_FILES['imageUpload']['tmp_name'];
     $fType = $_FILES['imageUpload']['type'];
@@ -23,7 +29,7 @@
             echo "<br>";
             echo "<a href='./md5.php'>MD5 file</a>";
             //$_SESSION['path'] = $uploadPath;
-             echo "<br><a href='./index.html'>Back</a>";
+            echo "<br><a href='./index.html'>Back</a>";
         }
         else {
             move_uploaded_file($fTmp, $uploadPath);
