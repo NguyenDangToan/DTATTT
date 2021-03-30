@@ -16,6 +16,8 @@
     $fExt = strtolower(end(explode('.', $fName)));
 
     $uploadPath = 'uploads/' . basename($fName);
+    // Web server is apache, this file is saved at /var/ www/html/uploads
+
     $_SESSION['path'] = $uploadPath;
     if (isset($_POST['SUBMIT'])){
         if (! in_array($fExt, $allowedExtensions)){
